@@ -1,6 +1,7 @@
 
 """for data anaysis for the trapped/polled values of the snmp parameters """
 import numpy as np
+import docsispy
 import os
 
 """DOCSIS object, that includes all the parameters of docsis throughput of the CM"""
