@@ -1,0 +1,78 @@
+
+"""for data anaysis for the trapped/polled values of the snmp parameters """
+import numpy as np
+import os
+
+"""DOCSIS object, that includes all the parameters of docsis throughput of the CM"""
+class DOCSIS:
+    def __init__ (self, CM, DOCSIS):
+        self.DOCSIS=DOCSIS
+        self.CM=CM
+
+    def get_DOCSIS_Parm(self):
+
+        return self.DOCSIS
+           
+    pass
+"""cable modem object where the parameters managed by SNMP are being communicated to the CMTS """
+class cm:
+    def __init__ (self, cmip):
+        self.cmip = cmip
+        #self.CMTS=CMTS
+        
+    def getCmdCm(self):
+
+        return self.DOCSIS
+    def set_CmdCm(self,DOCSIS_parm):
+        
+        return 
+    pass
+"""object for the Cable modem termination system, located in the headend of the HFC network, at VODAFONE Ziggo side/Manager side"""
+class cmts:
+    def __init__ (self, ip,cms  ):
+        self.ip = ip
+        self.cms = cms
+
+    def ingress_blocker(self,list_of_Ingress):
+        for i in range(len(list_of_Ingress)):
+            print("An ingress CM" + list_of_Ingress[i].IP + "is blocked ")
+            i=i+1
+        return 
+    def detect_ingress(self):
+      self.ingress_modem=false
+      if self.DOCSIS[0][3] < 40:
+        self.ingress_modem = true
+      return self.ingress_modem
+    pass
+def __main__ ():
+    M1= cm("10.10.1.10") 
+    M2= cm("10.10.1.11")
+    M3= cm("10.10.1.12")
+    M4= cm("10.10.1.13")
+    M5= cm("10.10.1.14")
+    M6= cm("10.10.1.15")
+    M7= cm("10.10.1.16")
+    M8= cm("10.10.1.17")
+    M9= cm("10.10.1.18")
+    M10= cm("10.10.1.19")
+    M11= cm("10.10.1.20")
+    M12= cm("10.10.1.21")
+    M13= cm("10.10.1.22")
+    M14= cm("10.10.1.23")
+    M15= cm("10.10.1.24")
+    CMs=[M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15]
+    CMTS1=cmts("100.90.20.1", CMs)
+    print(format(CMTS1))
+
+    ingls={}
+    for i in range(len(CMTS1)):
+        if CMTS1[i].detect_ingress == true :
+            print("a new ingress is found")
+            ingls=ingls+CMTS1[i]
+        i=i+1
+    
+    ingress_blocker(ingls)
+    pass
+
+if __name__ == __main__ :
+    main()
